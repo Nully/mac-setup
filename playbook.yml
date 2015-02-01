@@ -1,0 +1,40 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  sudo: no
+  vars:
+    homebrew_packages_packages:
+      - { name: rbenv }
+      - { name: ruby-build }
+      - { name: vim }
+      - { name: tmux }
+      - { name: reattach-to-user-namespace }
+      - { name: tig }
+
+    homebrew_cask_packages_packages:
+      - java
+      - dropbox
+      - virtualbox
+      - vagrant
+      - karabiner
+      - dash
+      - google-chrome
+
+  tasks: 
+    - name: install homebrew cask
+      command: brew install caskroom/cask/brew-cask
+    - name: mkdir vim backup dir
+      file: path=~/.vim-backup state=directory
+
+    - name: mkdir vim-neobundle dir
+      file: path=~/.vim/bundle state=directory
+      notify: install neobundle
+
+  handlers:
+    - name: install neobundle
+      command: git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+
+  roles:
+    - hnakamur.homebrew-packages
+    - hnakamur.homebrew-cask-packages
