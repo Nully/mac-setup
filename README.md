@@ -1,26 +1,8 @@
 # Setup Mac OS X with Ansible
 
-## Install homebrew
+## run install script
 
 ```
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+$ ./setup.sh
 ```
 
-## Install ansible
-
-```
-brew install ansible
-```
-
-## Install ansible galaxy
-
-```
-ansible-galaxy install hnakamur.homebrew-packages
-ansible-galaxy install hnakamur.homebrew-cask-packages
-```
-
-## Install machine
-
-```
-ansible-playbook -i hosts playbook.yml
-```
