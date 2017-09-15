@@ -63,6 +63,8 @@
         - ide-php
         - atom-beautify
         - dracula-ui
+        - vim-mode-plus
+        - vim-mode-visual-block
 
     - name: install dein vim
       shell: |
