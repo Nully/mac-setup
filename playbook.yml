@@ -2,71 +2,10 @@
 - hosts: localhost
   connection: local
   gather_facts: no
-  sudo: no
-  tasks: 
-    - name: Add brew repository
-      shell: 'brew tap {{item}}'
-      ignore_errors: true
-      with_items:
-        - "caskroom/cask"
-        - "caskroom/versions"
-        - "homebrew/binary"
+  roles:
+    - homebrew
+    - homebrew_cask
+    - vscode-extensions
+    - dotfiles
+    - shell-install
 
-    - name: install homebrew cask
-      command: brew install caskroom/cask/brew-cask
-
-    - name: Install development tools
-      shell: 'brew install {{item.name}}'
-      ignore_errors: true
-      with_items:
-        - {name: rbenv, option: ''}
-        - {name: ruby-build, option: ''}
-        - {name: phpbrew, option: ''}
-        - {name: vim, option: '--with-override-system-vi'}
-        - {name: tmux, option: ''}
-        - {name: reattach-to-user-namespace, option: ''}
-        - {name: tig, option: ''}
-
-    - name: install php 7.0 and 7.1
-      shell: phpbrew install {{item.version}} {{item.variant}}
-      with_items:
-        - {version: 7.0, variant: '+default+mysqlLpdo+mb+intl'}
-        - {version: 7.1, variant: '+default+mysqlLpdo+mb+intl'}
-
-    - name: install ruby 2.2 and 2.3
-      shell: rbenv install {{item.version}}
-      with_items:
-        - {version: 2.3.4}
-        - {version: 2.2.7}
-
-    - name: Install homebrew casks
-      shell: 'brew cask install {{item}}'
-      ignore_errors: true
-      with_items:
-        - java
-        - karabiner
-        - dash
-        - firefoxdeveloperedition
-        - google-chrome
-        - google-japanese-ime
-        - coteditor
-        - alfred
-        - virtualbox
-        - vagrant
-        - sequel-pro
-
-    - name: install apm packages
-      shell: 'apm install {{item}}'
-      with_items:
-        - japanese-menu
-        - atom-ide-ui
-        - ide-php
-        - atom-beautify
-        - dracula-ui
-        - vim-mode-plus
-        - vim-mode-visual-block
-
-    - name: install dein vim
-      shell: |
-        curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-        sh ./installer.sh ~/
