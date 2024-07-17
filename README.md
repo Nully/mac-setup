@@ -27,3 +27,12 @@ Host github.com
 CFG`
 $ echo $CFG >> .ssh/config
 ```
+
+## setup ansible inventory
+
+copy example file and change `ansible_become_user`.
+
+```
+$ cp inventory.ini.example inventory.ini
+```
+
