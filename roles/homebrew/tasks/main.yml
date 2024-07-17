@@ -11,11 +11,17 @@
   community.general.homebrew:
     name:
       - asdf
+      - coreutils
+      - curl
       - git
+      - gmp
       - hugo
       - jq
+      - libyaml
       - mas
       - neovim
+      - openssl@3
+      - readline
       - tig
       - tmux
       - zsh

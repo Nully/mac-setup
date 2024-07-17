@@ -3,9 +3,10 @@
   connection: local
   gather_facts: no
   roles:
-    - homebrew
-    - homebrew_cask
-    - vscode-extensions
+    # - homebrew
+    # - homebrew_cask
+    # - vscode-extensions
+    - shell-install
 
     #   tasks: 
     #     - name: Add brew repository

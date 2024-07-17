@@ -6,13 +6,20 @@
 - name: install caks packages
   community.general.homebrew_cask:
     name:
+      - 1password
       - alfred
       - alt-tab
       - android-studio
       - appcleaner
       - coteditor
+      - discord
+      - cyberduck
       - google-chrome
       - google-japanese-ime
       - iterm2
       - karabiner-elements
+      - keka
+      - notion
       - visual-studio-code
+      - slack
+    install_options: force
