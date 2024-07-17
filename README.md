@@ -16,7 +16,13 @@ https://brew.sh/ja/
 $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-## ssh connection config setup
+**install ansible**
+
+```
+$ brew install ansible
+```
+
+**ssh connection config setup**
 
 ```
 $ CFG=`<< CFG
@@ -28,7 +34,7 @@ CFG`
 $ echo $CFG >> .ssh/config
 ```
 
-## setup ansible inventory
+**setup ansible inventory**
 
 copy example file and change `ansible_become_user`.
 
