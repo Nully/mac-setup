@@ -1,0 +1,12 @@
+---
+- name: copy zshrc
+  ansible.builtin.copy:
+    src: ./roles/dotfiles/templates/.zshrc
+    dest: ~/.zshrc
+    backup: true
+
+- name: copy gitconfig
+  ansible.builtin.copy:
+    src: ./roles/dotfiles/templates/.gitconfig
+    dest: ~/.gitconfig
+    backup: true

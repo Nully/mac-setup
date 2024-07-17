@@ -1,0 +1,22 @@
+[user]
+    email = nully.nl@gmail.com
+    name = Nully
+
+[color]
+    status = auto
+    diff = auto
+    branch = auto
+    interactive = auto
+
+[alias]
+    ci = commit
+    co = checkout
+    di = diff
+    st = status
+    br = branch
+
+[core]
+    editor = /opt/homebrew/bin/nvim
+
+[github]
+    user = nully

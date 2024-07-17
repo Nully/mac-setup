@@ -6,5 +6,6 @@
     - homebrew
     - homebrew_cask
     - vscode-extensions
+    - dotfiles
     - shell-install
 
