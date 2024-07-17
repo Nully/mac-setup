@@ -1,0 +1,18 @@
+---
+- name: install vscode extensions
+  ansible.builtin.shell: |
+    exts=(
+      "eamodio.gitlens"
+      "dracula-theme.theme-dracula"
+      "Dart-Code.flutter"
+      "DEVSENSE.phptools-vscode"
+      "Shopify.ruby-lsp"
+      "asvetliakov.vscode-neovim"
+    )
+    cmd="code"
+    for ext in "${exts[@]}"; do
+      cmd="$cmd --install-extension $ext"
+    done
+    eval $cmd
+  args:
+    executable: /bin/bash
